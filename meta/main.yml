@@ -2,7 +2,7 @@
 galaxy_info:
   role_name: selinux
   author: Ivo Amorim
-  description: Role to initialize iptables rules
+  description: install selinux and enforce/disable it
   license: "BSD"
   min_ansible_version: 1.0
   platforms:
