@@ -1,0 +1,19 @@
+---
+- include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Install SELinux
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ selinux_packages }}"
+
+- name: Enable SELinux
+  selinux:
+    policy: targeted
+    state: enforcing
+  when: selinux_enabled
+
+- name: Disable SELinux
+  selinux:
+    state: disabled
+  when: not selinux_enabled

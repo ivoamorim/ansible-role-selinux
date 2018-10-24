@@ -1,0 +1,18 @@
+---
+galaxy_info:
+  role_name: selinux
+  author: Ivo Amorim
+  description: Role to initialize iptables rules
+  license: "BSD"
+  min_ansible_version: 1.0
+  platforms:
+    - name: centos
+      versions:
+        - 7
+    - name: debian
+      versions:
+        - 9
+  galaxy_tags:
+    - selinux
+    - security
+dependencies: []
