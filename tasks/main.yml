@@ -8,33 +8,13 @@
     state: present
   with_items: "{{ selinux_packages }}"
 
-- name: Enable SELinux
+- name: Enable SELinux in configuration
   selinux:
     policy: "{{ selinux_policy }}"
     state: enforcing
   when: selinux_enabled
-  register: selinux
 
 - name: Disable SELinux
   selinux:
     state: disabled
   when: not selinux_enabled
-
-- name: test Restart server
-  shell: sleep 2 && shutdown -r now
-  async: 1
-  poll: 0
-  ignore_errors: true
-  when:
-    - selinux.changed
-    - ansible_virtualization_type != "docker"
-
-- name: test Wait for the reboot to complete.
-  wait_for_connection:
-    connect_timeout: 20
-    sleep: 5
-    delay: 5
-    timeout: 300
-  when:
-    - selinux.changed
-    - ansible_virtualization_type != "docker"

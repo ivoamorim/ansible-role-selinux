@@ -28,12 +28,13 @@ def test_configuration_file_exists(host, distro, file):
 
 
 def test_getenforce_is_disabled(host):
+    # Docker is prohibited using selinux and forced to disable
     cmd = 'getenforce | grep Disabled'
     result = host.run(cmd)
     assert result.rc == 0
 
 
 def test_configuration_is_enforcing_v4(host):
-    cmd = "egrep 'SELINUX=(enforcing|permissive)' /etc/selinux/config"
+    cmd = "grep 'SELINUX=enforcing' /etc/selinux/config"
     result = host.run(cmd)
     assert result.rc == 0
