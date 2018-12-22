@@ -1,3 +1,0 @@
----
-- name: reboot
-  import_tasks: reboot.yml

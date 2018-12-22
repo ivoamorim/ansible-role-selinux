@@ -1,2 +1,7 @@
 ---
-selinux_packages: []
+selinux_packages:
+  - libselinux
+  - selinux-policy
+  - libselinux-python
+
+selinux_policy: targeted
