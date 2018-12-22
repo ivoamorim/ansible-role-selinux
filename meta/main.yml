@@ -12,6 +12,9 @@ galaxy_info:
     - name: debian
       versions:
         - 9
+    - name: ubuntu
+      versions:
+        - 1804
   galaxy_tags:
     - selinux
     - security
