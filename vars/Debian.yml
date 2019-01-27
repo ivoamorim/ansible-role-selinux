@@ -2,6 +2,5 @@
 selinux_packages:
   - selinux-basics
   - python-selinux
-  - python3-selinux
 
 selinux_policy: default
